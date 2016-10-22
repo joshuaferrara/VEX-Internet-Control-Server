@@ -99,18 +99,15 @@ io.on('connection', function (socket) {
   socket.on('telemetry', function(robot) {
     console.log(robot);
     lastTelemetry = new Date().getTime();
-    if (controlSocket)
-      broadcastType(connectionTypes.Web, 'robotTelemetry', robot);
+    if (controlSocket) broadcastType(connectionTypes.Web, 'robotTelemetry', robot);
   });
   
   socket.on('robotArmed', function(armed) {
-    if (controlSocket)
-      broadcastType(connectionTypes.Web, 'robotArmed', armed);
+    if (controlSocket) broadcastType(connectionTypes.Web, 'robotArmed', armed);
   });
   
   socket.on('wifiStatus', function(data) {
-    if (controlSocket)
-      broadcastType(connectionTypes.Web, 'wifiStatus', data);
+    if (controlSocket) broadcastType(connectionTypes.Web, 'wifiStatus', data);
   });
 });
 
